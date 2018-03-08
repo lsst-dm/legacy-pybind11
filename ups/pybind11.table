@@ -1,0 +1,1 @@
+envPrepend(CMAKE_PREFIX_PATH, ${PRODUCT_DIR})
