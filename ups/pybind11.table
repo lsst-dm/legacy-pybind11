@@ -1,1 +1,2 @@
 envPrepend(CMAKE_PREFIX_PATH, ${PRODUCT_DIR})
+envPrepend(PYTHONPATH, ${PRODUCT_DIR})
