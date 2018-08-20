@@ -1,0 +1,15 @@
+--- pybind11/include/pybind11/detail/common.h.orig	2018-08-20 13:33:28.000000000 -0700
++++ pybind11/include/pybind11/detail/common.h	2018-08-20 13:36:06.000000000 -0700
+@@ -287,9 +287,12 @@
+             PYBIND11_CONCAT(pybind11_init_, name)(m);                          \
+             return m.ptr();                                                    \
+         } catch (pybind11::error_already_set &e) {                             \
++            e.restore();                                                       \
++            PyErr_Clear();                                                     \
+             PyErr_SetString(PyExc_ImportError, e.what());                      \
+             return nullptr;                                                    \
+         } catch (const std::exception &e) {                                    \
++            PyErr_Clear();                                                     \
+             PyErr_SetString(PyExc_ImportError, e.what());                      \
+             return nullptr;                                                    \
+         }                                                                      \
