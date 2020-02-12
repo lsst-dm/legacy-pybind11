@@ -2,7 +2,7 @@
 
 config()
 {
-    (rm -rf build && mkdir build && cd build && cmake -DPYTHON_EXECUTABLE:FILEPATH=$(command -v python) -DCMAKE_INSTALL_PREFIX=$PREFIX ..)
+    (rm -rf build && mkdir build && cd build && cmake -DPYTHON_EXECUTABLE:FILEPATH=$(command -v python) -DCMAKE_INSTALL_PREFIX=$PREFIX -DPYBIND11_TEST=OFF ..)
 }
 
 build()
